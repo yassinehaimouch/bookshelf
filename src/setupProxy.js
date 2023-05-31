@@ -8,3 +8,4 @@ function proxy(app) {
 }
 
 module.exports = proxy
+
