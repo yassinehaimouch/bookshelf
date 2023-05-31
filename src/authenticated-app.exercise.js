@@ -2,13 +2,13 @@
 import {jsx} from '@emotion/core'
 
 import * as React from 'react'
-import {Routes, Route, Link} from 'react-router-dom'
+import {Routes, Route, Link, useMatch} from 'react-router-dom'
 import {Button} from './components/lib'
 import * as mq from './styles/media-queries'
 import * as colors from './styles/colors'
 import {DiscoverBooksScreen} from 'screens/discover'
-import { BookScreen } from 'screens/book.exercise'
-import { NotFoundScreen } from 'screens/not-found.exercise';
+import {BookScreen} from 'screens/book.exercise'
+import {NotFoundScreen} from 'screens/not-found.exercise'
 
 function AuthenticatedApp({user, logout}) {
   return (
@@ -55,23 +55,36 @@ function AuthenticatedApp({user, logout}) {
 }
 
 function NavLink(props) {
+  const match = useMatch(props.to)
+  
   return (
     <Link
-      css={{
-        display: 'block',
-        padding: '8px 15px 8px 10px',
-        margin: '5px 0',
-        width: '100%',
-        height: '100%',
-        color: colors.text,
-        borderRadius: '2px',
-        borderLeft: '5px solid transparent',
-        ':hover': {
-          color: colors.indigo,
-          textDecoration: 'none',
-          background: colors.gray10,
+      css={[
+        {
+          display: 'block',
+          padding: '8px 15px 8px 10px',
+          margin: '5px 0',
+          width: '100%',
+          height: '100%',
+          color: colors.text,
+          borderRadius: '2px',
+          borderLeft: '5px solid transparent',
+          ':hover': {
+            color: colors.indigo,
+            textDecoration: 'none',
+            background: colors.gray10,
+          },
         },
-      }}
+        match
+          ? {
+              borderLeft: `5px solid ${colors.indigo}`,
+              background: colors.gray10,
+              ':hover': {
+                background: colors.gray10,
+              },
+            }
+          : null,
+      ]}
       {...props}
     />
   )
