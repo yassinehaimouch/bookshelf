@@ -1,29 +1,17 @@
-<<<<<<< HEAD
-import {loadDevTools} from './dev-tools/load'
-import './bootstrap'
-import * as React from 'react'
-import {createRoot} from 'react-dom/client'
-import {App} from './app'
-
-// ignore the rootRef in this file. I'm just doing it here to make
-// the tests I write to check your work easier.
-export const rootRef = {}
-loadDevTools(() => {
-  const root = createRoot(document.getElementById('root'))
-  root.render(<App />)
-  rootRef.current = root
-})
-=======
 /** @jsx jsx */
 import {jsx} from '@emotion/core'
 
+import 'bootstrap/dist/css/bootstrap-reboot.css'
 import '@reach/dialog/styles.css'
 import * as React from 'react'
 import {createRoot} from 'react-dom/client'
-import 'bootstrap/dist/css/bootstrap-reboot.css'
-import {Button, Input, FormGroup} from './components/lib'
+import {Button, Input, FormGroup, Spinner} from './components/lib'
 import {Modal, ModalContents, ModalOpenButton} from './components/modal'
 import {Logo} from './components/logo'
+<<<<<<< HEAD:src/unauthenticated-app.js
+import {useAsync} from './utils/hooks'
+=======
+>>>>>>> 1f15c142a76d66414c61da6637395b3c5cf691a5:src/index.extra-3.js
 
 function LoginForm({onSubmit, submitButton}) {
   function handleSubmit(event) {
@@ -38,7 +26,6 @@ function LoginForm({onSubmit, submitButton}) {
 
   return (
     <form
-      onSubmit={handleSubmit}
       css={{
         display: 'flex',
         flexDirection: 'column',
@@ -49,6 +36,7 @@ function LoginForm({onSubmit, submitButton}) {
           maxWidth: '300px',
         },
       }}
+      onSubmit={handleSubmit}
     >
       <FormGroup>
         <label htmlFor="username">Username</label>
@@ -58,11 +46,17 @@ function LoginForm({onSubmit, submitButton}) {
         <label htmlFor="password">Password</label>
         <Input id="password" type="password" />
       </FormGroup>
-      <div>{React.cloneElement(submitButton, {type: 'submit'})}</div>
+      <div>
+        {React.cloneElement(submitButton, {type: 'submit'})}
+        <Spinner css={{marginLeft: 5}} />
+      </div>
     </form>
   )
 }
 
+<<<<<<< HEAD:src/unauthenticated-app.js
+function UnauthenticatedApp({login, register}) {
+=======
 function App() {
   function login(formData) {
     console.log('login', formData)
@@ -72,6 +66,7 @@ function App() {
     console.log('register', formData)
   }
 
+>>>>>>> 1f15c142a76d66414c61da6637395b3c5cf691a5:src/index.extra-3.js
   return (
     <div
       css={{
@@ -119,7 +114,10 @@ function App() {
   )
 }
 
+<<<<<<< HEAD:src/unauthenticated-app.js
+export {UnauthenticatedApp}
+=======
 const root = createRoot(document.getElementById('root'))
 root.render(<App />)
 export {root}
->>>>>>> 1f15c142a76d66414c61da6637395b3c5cf691a5
+>>>>>>> 1f15c142a76d66414c61da6637395b3c5cf691a5:src/index.extra-3.js
