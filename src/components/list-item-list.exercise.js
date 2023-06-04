@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {jsx} from '@emotion/core'
 
-import { useListItems } from 'utils/list-items.exercise'
+import {useListItems} from 'utils/list-items'
 import {BookListUL} from './lib'
 import {BookRow} from './book-row'
 
@@ -12,9 +12,10 @@ function ListItemList({
   noFilteredListItems,
 }) {
   const listItems = useListItems(user)
-  const filteredListItems = listItems?.filter(filterListItems)
 
-  if (!listItems?.length) {
+  const filteredListItems = listItems.filter(filterListItems)
+
+  if (!listItems.length) {
     return <div css={{marginTop: '1em', fontSize: '1.2em'}}>{noListItems}</div>
   }
   if (!filteredListItems.length) {
