@@ -1,6 +1,6 @@
-export * from './auth-context.final'
+// export * from './auth-context.final'
 
-// export * from './auth-context.exercise'
+export * from './auth-context.exercise'
 
 // 💯 create a `useAuth` hook
 // export * from './auth-context.extra-1'

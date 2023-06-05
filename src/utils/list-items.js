@@ -1,6 +1,6 @@
-export * from './list-items.final'
+// export * from './list-items.final'
 
-// export * from './list-items.exercise'
+export * from './list-items.exercise'
 
 // 💯 create a `useAuth` hook
 // export * from './list-items.extra-1'

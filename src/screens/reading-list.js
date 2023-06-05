@@ -1,3 +1,3 @@
-export * from './reading-list.final'
+// export * from './reading-list.final'
 
-// export * from './reading-list.exercise'
+export * from './reading-list.exercise'
