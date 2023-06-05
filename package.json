@@ -4,9 +4,9 @@
   "private": true,
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
-  "homepage": "https://exercises-02-styles.bookshelf.lol/",
+  "homepage": "https://exercises-06-cache-management.bookshelf.lol/",
   "engines": {
-    "node": "14 || 16 || 18",
+    "node": ">=16",
     "npm": ">=8.16.0"
   },
   "dependencies": {
