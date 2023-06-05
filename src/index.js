@@ -1,15 +1,17 @@
-<<<<<<< HEAD
-// no final
+import {loadDevTools} from './dev-tools/load'
+import './bootstrap'
+import * as React from 'react'
+import {createRoot} from 'react-dom/client'
+import {Profiler} from 'components/profiler'
+import {App} from './app'
+import {AppProviders} from './context'
 
-export * from './index.exercise'
-
-// 💯 Wrap the `<App />` in a `<ReactQueryConfigProvider />`
-// export * from './index.extra-2'
-=======
-// export * from './index.final'
-
-export * from './index.exercise'
-
-// 💯 make a loading spinner component
-// export * from './index.extra-3'
->>>>>>> 1f15c142a76d66414c61da6637395b3c5cf691a5
+loadDevTools(() => {
+  createRoot(document.getElementById('root')).render(
+    <Profiler id="App Root" phases={['mount']}>
+      <AppProviders>
+        <App />
+      </AppProviders>
+    </Profiler>,
+  )
+})
